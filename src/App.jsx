@@ -29,9 +29,22 @@ function App() {
 
   const [records, setRecords] = useState(dataSource);
 
+  function toggleActiveRow(id, value) {
+    console.log('toggleActiveRow', id, value);
+    setRecords(records.map((record) => {
+      if (record.id === id) {
+        return {
+          ...record,
+          active: value
+        }
+      }
+      return record
+    }))
+  }
+
   return (
     <>
-      <GridComponent records={records} />
+      <GridComponent records={records} toggleActiveRow={toggleActiveRow} />
     </> 
   )
 }

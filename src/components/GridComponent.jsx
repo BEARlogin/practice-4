@@ -1,6 +1,6 @@
 import { GridRow } from "./GridRow";
 
-function GridComponent({records}) {
+function GridComponent({records, toggleActiveRow}) {
     return (
         <>
             <input type="text" placeholder="Search" /> 
@@ -13,7 +13,9 @@ function GridComponent({records}) {
                 </tr>
                 </thead>
                 <tbody>
-                    {records.map((record) => <GridRow record={record} key={record.id} />)}  
+                    {records.map((record) => <GridRow toggleActive={(value) => {
+                        toggleActiveRow(record.id, value)
+                    }} record={record} key={record.id} />)}  
                 </tbody>
             </table> 
         </> 
