@@ -1,4 +1,4 @@
-function GridComponent() {
+function GridComponent({records}) {
     return (
       <table className="table table-condensed">
         <thead>
@@ -9,21 +9,11 @@ function GridComponent() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>John</td>
-            <td>Doe</td>
-            <td>zjTm0@example.com</td>
-          </tr>
-          <tr>
-            <td>Mary</td>
-            <td>Moe</td>
-            <td>zjTm0@example.com</td>
-          </tr>
-          <tr>
-            <td>July</td>
-            <td>Dooley</td>
-            <td>zjTm0@example.com</td>
-          </tr>
+            {records.map((record) => <tr key={record.id}>
+                <td>{record.firstName}</td> 
+                <td>{record.lastName}</td>
+                <td><input type="checkbox" checked={record.active} /></td>
+            </tr>)}  
         </tbody>
       </table>
     );
