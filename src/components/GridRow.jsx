@@ -1,4 +1,5 @@
-export function GridRow({record, toggleActive}) {
+import PropTypes from "prop-types";
+function GridRow({record, toggleActive}) {
     return (
         <tr key={record.id}>
         <td>{record.firstName}</td> 
@@ -7,3 +8,14 @@ export function GridRow({record, toggleActive}) {
     </tr>  
     ) 
 } 
+
+GridRow.propTypes = {
+    record: PropTypes.shape({
+        firstName: PropTypes.string.isRequired,
+        lastName: PropTypes.string.isRequired,
+        active: PropTypes.bool.isRequired,
+        id: PropTypes.number.isRequired
+    }), 
+}
+
+export { GridRow }
