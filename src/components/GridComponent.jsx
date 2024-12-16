@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { GridRow } from "./GridRow";
 
-function GridComponent({records, toggleActiveRow}) {
+function GridComponent({records, toggleActiveRow, onFilter}) {
+
+  
     return (
         <>
-            <input type="text" placeholder="Search" /> 
+            <input onChange={(e) => onFilter(e.target.value)} type="text" placeholder="Search" /> 
             <table className="table table-condensed">
                 <thead>
                 <tr>
